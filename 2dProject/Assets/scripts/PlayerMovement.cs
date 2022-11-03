@@ -23,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
 
 	public FixedJoystick myJoystick;
 
+	public Animator playerSriteAnimator;
+
+	public Transform playerSprite;
+
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -33,9 +37,29 @@ public class PlayerMovement : MonoBehaviour
 	{
 		xDirection = myJoystick.Horizontal;
 
+		playerSriteAnimator.SetFloat("Speed", Mathf.Abs(xDirection));
+
 		if (myJoystick.Vertical > 0.7f && IsGrounded())
 		{
 			rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+		}
+
+		if (xDirection > 0)
+		{
+			transform.rotation = Quaternion.Euler(0, 0, 0);
+		}
+		else if (xDirection < 0)
+		{
+			transform.rotation = Quaternion.Euler(0, 180, 0);
+		}
+
+		if (rb.velocity.y != 0)
+		{
+			playerSriteAnimator.SetBool("IsJumping", true);
+		}
+		else
+		{
+			playerSriteAnimator.SetBool("IsJumping", false);
 		}
 	}
 

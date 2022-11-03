@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
 	public float checkgroundDistance = 1f;
 
+	public FixedJoystick myJoystick;
+
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -29,9 +31,17 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	private void Update()
 	{
-		xDirection = Input.GetAxisRaw("Horizontal");
+		xDirection = myJoystick.Horizontal;
 
-		if (Input.GetButtonDown("Jump") && IsGrounded())
+		if (myJoystick.Vertical > 0.7f && IsGrounded())
+		{
+			rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+		}
+	}
+
+	public void Jump()
+	{
+		if (IsGrounded())
 		{
 			rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 		}

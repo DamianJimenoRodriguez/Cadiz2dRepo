@@ -710,6 +710,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   checkgroundDistance: 1
+  myJoystick: {fileID: 2078858455}
 --- !u!50 &2001739916
 Rigidbody2D:
   serializedVersion: 4
@@ -831,3 +832,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
   m_PrefabInstance: {fileID: 1842545029}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2078858455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 1842545029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
